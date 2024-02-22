@@ -22,4 +22,6 @@ by the tools that you are already using.
   an unrecognized issuer CA. Thus, all your certificate issuers must be explicitly registered in the configuration.
 * The current implementation might not work well with large CRLs (solvable with background workers).
 
-ocspbuilder
+## Notes
+
+Certain code is based on [wbond/ocspbuilder](https://github.com/wbond/ocspbuilder).
