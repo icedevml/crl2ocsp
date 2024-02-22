@@ -38,6 +38,10 @@ class BaseOCSPSigner:
     # Certificate of the CA that issued the CRL
     crl_issuer_cert: None
 
+    # Hash algorithm to be used when signing OCSP responses
+    # Could be one of: sha1, sha256, sha384, sha512
+    hash_algo: str
+
     # added to the actual current time in order to compute "this update" value,
     # slightly backdated by default to avoid problems
     this_update_offset: timedelta

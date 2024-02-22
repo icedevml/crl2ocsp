@@ -7,8 +7,9 @@ by the tools that you are already using.
 ## Features
 
 * Supports both SHA-1 and SHA-256 hash algorithms for Certificate ID.
+* Supports SHA-1/SHA-256/SHA-384/SHA-512 hash algorithms for signing the OCSP response.
 * Could answer on behalf of multiple CAs at once (with distinct CRLs).
-* (TODO test) Supports delegated OCSP signing.
+* Supports delegated OCSP signing.
 
 ## Known limitations
 
@@ -20,3 +21,5 @@ by the tools that you are already using.
 * This OCSP server would return the `unauthorized` error code when the queried certificate is related with
   an unrecognized issuer CA. Thus, all your certificate issuers must be explicitly registered in the configuration.
 * The current implementation might not work well with large CRLs (solvable with background workers).
+
+ocspbuilder

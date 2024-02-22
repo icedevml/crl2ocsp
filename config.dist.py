@@ -10,7 +10,8 @@ OCSP_SIGNERS = [
         ca_cert=XCertificate('intermediate_ca.pem'),
         ca_key=XPrivateKey('intermediate_ca.key', 'password'),
         this_update_offset=timedelta(minutes=-1),
-        next_update_offset=timedelta(minutes=1)
+        next_update_offset=timedelta(minutes=1),
+        hash_algo='sha256'
     ),
     DelegatedOCSPSigner(
         crl_url='http://my-ca.example.com/crl',
@@ -23,6 +24,7 @@ OCSP_SIGNERS = [
             key_password='xxx'
         ),
         this_update_offset=timedelta(minutes=-1),
-        next_update_offset=timedelta(minutes=1)
+        next_update_offset=timedelta(minutes=1),
+        hash_algo='sha256'
     )
 ]

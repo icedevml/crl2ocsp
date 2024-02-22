@@ -156,9 +156,12 @@ def generate_ocsp_res(ocsp_req: OCSPRequest):
         'response_extensions': ResponseDataExtensions(value=exts)
     })
 
-    # TODO hardcoded hash algorithm of the certificate
-    signature_bytes = asymmetric.ecdsa_sign(responder_private_key, response_data.dump(), "sha256")
-    signature_algorithm_id = '%s_%s' % ('sha256', 'ecdsa')
+    signature_algo = responder_private_key.algorithm
+    if signature_algo == 'ec':
+        signature_algo = 'ecdsa'
+
+    signature_bytes = asymmetric.ecdsa_sign(responder_private_key, response_data.dump(), signer.hash_algo)
+    signature_algorithm_id = '%s_%s' % (signer.hash_algo, signature_algo)
 
     resp = ocsp.OCSPResponse({
         'response_status': 'successful',
