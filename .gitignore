@@ -1,0 +1,6 @@
+/.idea/
+/venv/
+/__pycache__/
+/config.py
+/*.pem
+/*.key
